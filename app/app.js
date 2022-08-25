@@ -61,10 +61,10 @@ function Converter(value, valueType, objectKey = "key") {
     }
   }
 
-  if(valueTypeToLowerCase === 'function') {
+  if (valueTypeToLowerCase === "function") {
     return function ConverterFunction() {
-        return value;
-    }
+      return value;
+    };
   }
 
   if (
@@ -75,7 +75,7 @@ function Converter(value, valueType, objectKey = "key") {
     console.warn("Converter dosen't support another javascrtipt type");
   } else {
     throw new Error(
-      `type ${valueTypeToLowerCase} does not exist on standard javascript type`
+      `type ${valueTypeToLowerCase} does not exist on standard javascript types`
     );
   }
 }
@@ -86,3 +86,4 @@ function Converter(value, valueType, objectKey = "key") {
 // console.log(Converter([1,2,3,4],'object{}','person'));
 // console.log(Converter("undefined", "number"));
 // console.log(Converter('hello world','Function')());
+// console.log(Converter('34','r'));
