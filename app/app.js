@@ -1,6 +1,6 @@
 function Converter(value, valueType) {
   if (typeof valueType !== "string") {
-    throw new Error(`type string is not assinble to type ${typeof valueType}`);
+    throw new Error(`type string is not assignable to type ${typeof valueType}`);
   }
 
   const valueTypeToLowerCase = valueType.toLowerCase();
@@ -17,7 +17,7 @@ function Converter(value, valueType) {
     }
   }
 
-  
+
 
   
 }
