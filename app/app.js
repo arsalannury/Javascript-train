@@ -1,9 +1,11 @@
 function Converter(value, valueType) {
   if (typeof valueType !== "string") {
-    throw new Error(`type string is not assignable to type ${typeof valueType}`);
+    throw new Error(
+      `type string is not assignable to type ${typeof valueType}`
+    );
   }
 
-  const valueTypeToLowerCase = valueType.toLowerCase();
+  const valueTypeToLowerCase = valueType.toLowerCase().trim();
 
   if (valueTypeToLowerCase === "string") {
     if (typeof value === "number") {
@@ -17,9 +19,23 @@ function Converter(value, valueType) {
     }
   }
 
+  if (valueTypeToLowerCase === "boolean") {
+    return Boolean(value);
+  }
 
-
+  if (valueTypeToLowerCase === "object[]") {
+    if (typeof value === "string") {
+      return value.split(" ");
+    } else if (typeof value === "number" || typeof value === "boolean") {
+      return new Array(value);
+    } else {
+      throw new Error(
+        "only number, boolean, string type can changed to object[]"
+      );
+    }
+  }
   
 }
 
 // console.log(Converter([34,56], "string"));
+// console.log(Converter(0,'boolean'));
