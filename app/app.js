@@ -42,9 +42,35 @@ function Converter(value, valueType, objectKey = "key") {
       Array.isArray(value)
     ) {
       return { [objectKey]: value };
+    } else {
+      throw new Error(`can not change type ${typeof value} to object{}`);
     }
+  }
+
+  if (valueTypeToLowerCase === "number") {
+    if (isNaN(value)) {
+      throw new Error(
+        `this always return NaN because ${value} can not change to number`
+      );
+    } else {
+      if (typeof value === "string") {
+        return Number(value);
+      } else {
+        throw new Error(`can not change type ${typeof value} to number`);
+      }
+    }
+  }
+
+  if (
+    valueTypeToLowerCase === "bigint" ||
+    valueTypeToLowerCase === "undefined" ||
+    valueTypeToLowerCase === "symbol"
+  ) {
+    console.warn("Converter dosen't support another javascrtipt type");
   } else {
-    throw new Error(`can not change type ${typeof value} to object{}`);
+    throw new Error(
+      `type ${valueTypeToLowerCase} does not exist on standard javascript type`
+    );
   }
 }
 
@@ -52,3 +78,4 @@ function Converter(value, valueType, objectKey = "key") {
 // console.log(Converter(0,'boolean'));
 // console.log(Converter('arsalan',"object[]"));
 // console.log(Converter([1,2,3,4],'object{}','person'));
+// console.log(Converter("undefined", "number"));
