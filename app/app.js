@@ -61,6 +61,12 @@ function Converter(value, valueType, objectKey = "key") {
     }
   }
 
+  if(valueTypeToLowerCase === 'function') {
+    return function ConverterFunction() {
+        return value;
+    }
+  }
+
   if (
     valueTypeToLowerCase === "bigint" ||
     valueTypeToLowerCase === "undefined" ||
@@ -79,3 +85,4 @@ function Converter(value, valueType, objectKey = "key") {
 // console.log(Converter('arsalan',"object[]"));
 // console.log(Converter([1,2,3,4],'object{}','person'));
 // console.log(Converter("undefined", "number"));
+// console.log(Converter('hello world','Function')());
