@@ -1,4 +1,4 @@
-function Converter(value, valueType) {
+function Converter(value, valueType, objectKey = "key") {
   if (typeof valueType !== "string") {
     throw new Error(
       `type string is not assignable to type ${typeof valueType}`
@@ -15,7 +15,7 @@ function Converter(value, valueType) {
     } else if (typeof value === "boolean") {
       return String(value);
     } else {
-      throw new Error("only number and boolean type can changed to string");
+      throw new Error(`can not change type ${typeof value} to string`);
     }
   }
 
@@ -27,15 +27,28 @@ function Converter(value, valueType) {
     if (typeof value === "string") {
       return value.split(" ");
     } else if (typeof value === "number" || typeof value === "boolean") {
-      return new Array(value);
+      return [value];
     } else {
-      throw new Error(
-        "only number, boolean, string type can changed to object[]"
-      );
+      throw new Error(`can not change type ${typeof value} to object[]`);
     }
   }
-  
+
+  if (valueTypeToLowerCase === "object{}") {
+    if (
+      typeof value === "string" ||
+      typeof value === "number" ||
+      typeof value === "boolean" ||
+      typeof value === "function" ||
+      Array.isArray(value)
+    ) {
+      return { [objectKey]: value };
+    }
+  } else {
+    throw new Error(`can not change type ${typeof value} to object{}`);
+  }
 }
 
 // console.log(Converter([34,56], "string"));
 // console.log(Converter(0,'boolean'));
+// console.log(Converter('arsalan',"object[]"));
+// console.log(Converter([1,2,3,4],'object{}','person'));
