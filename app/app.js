@@ -53,10 +53,14 @@ function Converter(value, valueType, objectKey = "key") {
         `this always return NaN because ${value} can not change to number`
       );
     } else {
-      if (typeof value === "string") {
-        return Number(value);
+      if (Array.isArray(value)) {
+        if (value.length === 0) {
+          return [];
+        } else {
+          return [Number(value)];
+        }
       } else {
-        throw new Error(`can not change type ${typeof value} to number`);
+        return Number(value);
       }
     }
   }
@@ -87,3 +91,4 @@ function Converter(value, valueType, objectKey = "key") {
 // console.log(Converter("undefined", "number"));
 // console.log(Converter('hello world','Function')());
 // console.log(Converter('34','r'));
+// console.log(Converter([0], "number"));
