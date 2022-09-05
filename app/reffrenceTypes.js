@@ -7,15 +7,19 @@ function ConverterReffrence(objectOrArray) {
       `type ${typeof objectOrArray} is not assignable to type Object or Array`
     );
   }
+
   if (objectOrArray.length === 0) return [];
 
-  const includesFn = (value) => {
-    return validArrayValues.includes(value);
-  };
 
   if (Array.isArray(objectOrArray)) {
-    const res = objectOrArray.filter(includesFn);
-    console.log(res);
+
+    const includesFn = (value) => {
+        return validArrayValues.includes(value);
+      };
+    const filterArray = objectOrArray.filter(includesFn);
+
+    
+
   }
 }
 
