@@ -11,9 +11,7 @@ function ConverterReffrence (objectOrArray) {
     if(Array.isArray(objectOrArray)) {
         let isArray = objectOrArray;
         if(isArray.length === 0) return []; 
-        const r= objectOrArray.every((value) => {
-            return  value === '1'
-        })
+        const r= objectOrArray.every((value) => value === 1)
         console.log(r);
         // const deleteDuplicateValues = [...new Set(objectOrArray)]; 
         // console.log(deleteDuplicateValues);
