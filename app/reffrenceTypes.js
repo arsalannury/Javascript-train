@@ -3,7 +3,7 @@ function ConverterReffrence(objectOrArray, sortSmalToBig = true) {
   // * * * if argument which is passed was a Array , Converter using this array for validating values * * * //
   const validArrayValues = ['1','2','3','4','5','6','7','8','9','0',true,false,1,2,3,4,5,6,7,8,9,0];
 
-  if (typeof objectOrArray !== "object" || !Array.isArray(objectOrArray)) {
+  if (typeof objectOrArray !== "object" && !Array.isArray(objectOrArray)) {
     throw new Error(`type ${typeof objectOrArray} is not assignable to type Object or Array`);
   } else if (typeof sortSmalToBig !== "boolean") {
     throw new Error(`type ${typeof sortSmalToBig} is not assignable to type Boolean`);
@@ -31,27 +31,42 @@ function ConverterReffrence(objectOrArray, sortSmalToBig = true) {
     const sortArray = removeDuplicateValues.sort(sortArrayFn);
     return sortArray;
   }
+
+
+ 
+
+
 }
+
+// console.log(
+//   ConverterReffrence(
+//     [
+//       "true",
+//       "1",
+//       "2",
+//       "2",
+//       "2",
+//       "2",
+//       "2",
+//       false,
+//       "2",
+//       "2",
+//       "r",
+//       "t",
+//       2,
+//       "5",
+//       "3",
+//     ],
+//     false
+//   )
+// );
 
 console.log(
   ConverterReffrence(
-    [
-      "true",
-      "1",
-      "2",
-      "2",
-      "2",
-      "2",
-      "2",
-      false,
-      "2",
-      "2",
-      "r",
-      "t",
-      2,
-      "5",
-      "3",
-    ],
+    [{name:'arsalan',age:23},{name:"ali",age:22}],
     false
   )
 );
+
+
+// console.log(ConverterReffrence({name:2}));
