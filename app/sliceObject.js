@@ -1,9 +1,9 @@
 class CustomObject {
-  static pushObjectInArray = (object) => {
+  static pushObjectInArray = (...object) => {
     if (typeof object !== "object")
       throw new Error(`type object is not assignable to type ${object}`);
 
-    return [object];
+    return object;
   };
 
   static sliceObject = (object) => {
@@ -19,10 +19,17 @@ class CustomObject {
 Object.prototype.CustomObject = CustomObject;
 
 const person = {
-  name:"arsalan",
-  age:22
-}
+  name: "arsalan",
+  age: 22,
+};
+
+const object = {
+  first: { name: "arsalan" },
+  second: { name: "ali" },
+  third: { name: "akbar" },
+};
+
 const test = Object.CustomObject.sliceObject(person);
-console.log(test);
+const test2 = Object.CustomObject.pushObjectInArray(object);
 // console.log(CustomObject.sliceObject({ title: "testtt", name: "arsalan" }));
 // console.log(CustomObject.pushObjectInArray({title:'test'}));
