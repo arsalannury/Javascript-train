@@ -16,6 +16,13 @@ class CustomObject {
     return convert;
   };
 }
+Object.prototype.CustomObject = CustomObject;
 
+const person = {
+  name:"arsalan",
+  age:22
+}
+const test = Object.CustomObject.sliceObject(person);
+console.log(test);
 // console.log(CustomObject.sliceObject({ title: "testtt", name: "arsalan" }));
 // console.log(CustomObject.pushObjectInArray({title:'test'}));
