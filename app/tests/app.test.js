@@ -75,3 +75,9 @@ describe("App function method valueType object",() => {
     expect(callFn).toEqual({arrayValue:["test value"]});
   })
 })
+
+describe("App function method valueType number",() => {
+    test("should return ",() => {
+
+    })
+})
