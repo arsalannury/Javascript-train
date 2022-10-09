@@ -29,3 +29,4 @@ function sortNumbers(array, sortSmalToBig = true) {
   const sortArray = removeDuplicateValues.sort(sortArrayFn);
   return sortArray;
 }
+module.exports = sortNumbers;
