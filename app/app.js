@@ -83,13 +83,4 @@ function Converter(value, valueType, objectKey = "key") {
     );
   }
 }
-
-// console.log(Converter([34,56], "string"));
-// console.log(Converter(0,'boolean'));
-// console.log(Converter('arsalan',"any[]"));
-// console.log(Converter([1,2,3,4],'object{}','person'));
-// console.log(Converter("undefined", "number"));
-// console.log(Converter('hello world','Function')());
-// console.log(Converter('34','r'));
-// console.log(Converter([0], "number"));
 module.exports = Converter;

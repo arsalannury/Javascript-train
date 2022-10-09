@@ -1,12 +1,15 @@
 class CustomObject {
   static pushObjectInArray = (...object) => {
-    if (typeof object !== "object")
-      throw new Error(`type object is not assignable to type ${object}`);
+    if (object.length === 0)
+      throw new Error("this function can not return value without pass argument");
 
     return object;
   };
 
   static sliceObject = (object) => {
+    if(!object) {
+      throw new Error("can not return anything without pass argumant")
+    }
     const toArray = Object.entries(object);
     const convert = toArray.map((arr) => {
       return {
@@ -17,19 +20,4 @@ class CustomObject {
   };
 }
 Object.prototype.CustomObject = CustomObject;
-
-const person = {
-  name: "arsalan",
-  age: 22,
-};
-
-const object = {
-  first: { name: "arsalan" },
-  second: { name: "ali" },
-  third: { name: "akbar" },
-};
-
-const test = Object.CustomObject.sliceObject(person);
-const test2 = Object.CustomObject.pushObjectInArray(object);
-// console.log(CustomObject.sliceObject({ title: "testtt", name: "arsalan" }));
-// console.log(CustomObject.pushObjectInArray({title:'test'}));
+module.exports = CustomObject
