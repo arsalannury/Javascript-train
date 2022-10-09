@@ -76,7 +76,7 @@ function Converter(value, valueType, objectKey = "key") {
     valueTypeToLowerCase === "undefined" ||
     valueTypeToLowerCase === "symbol"
   ) {
-    console.warn("Converter dosen't support another javascrtipt type");
+    throw new Error("Converter dosen't support another javascrtipt type");
   } else {
     throw new Error(
       `type ${valueTypeToLowerCase} does not exist on standard javascript types`
