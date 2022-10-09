@@ -110,8 +110,8 @@ describe("all Converter function error test", () => {
     expect(() => Converter("", 0)).toThrow();
   });
   test("should return error if valueType is equal to bigint or undefined or symbol", () => {
-    expect(() => Converter("", "undefined"));
-    expect(() => Converter("", "bigint"));
-    expect(() => Converter("", "symbol"));
+    expect(() => Converter("", "undefined")).toThrow();
+    expect(() => Converter("", "bigint")).toThrow();
+    expect(() => Converter("", "symbol")).toThrow();
   });
 });
