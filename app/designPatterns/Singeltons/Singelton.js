@@ -1,7 +1,7 @@
 let instance;
 let counter = 0;
 
-class Counter {
+ class Counter {
   constructor() {
     if (instance) {
       throw new Error("You can't create more than one instance of this class");
@@ -47,7 +47,7 @@ document.body.append(decBtn);
 
 //! ------------------------------------------------------------------
 
-class Config {
+ class Config {
   static #instance = null;
 
   //* should create private constructor with TS //
@@ -65,3 +65,13 @@ const MailConfig = Config.getInstance();
 const ResumeConfig = Config.getInstance();
 // * this return true since have call getInstance method for create an object
 // console.log(MailConfig === ResumeConfig);
+
+
+module.exports = {
+  Counter,
+  Config,
+  incBtn,
+  decBtn,
+  firstInstance
+}
+ 
